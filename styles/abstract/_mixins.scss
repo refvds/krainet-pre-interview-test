@@ -1,0 +1,42 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == desktop {
+    @media screen and (max-width: 1340px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop-lg {
+    @media screen and (max-width: 1140px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop-md {
+    @media screen and (max-width: 980px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop-xs {
+    @media screen and (max-width: 840px) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    @media screen and (max-width: 610px) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop-xs {
+    @media screen and (max-width: 580px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile-md {
+    @media screen and (max-width: 430px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile {
+    @media screen and (max-width: 380px) {
+      @content;
+    }
+  }
+}

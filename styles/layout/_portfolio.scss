@@ -1,0 +1,144 @@
+@use "../abstract/mixins" as *;
+
+.portfolio {
+  padding-top: 120px;
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    &.bg-circle::before {
+      left: 30%;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    text-align: center;
+    margin-top: 6px;
+    position: relative;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 60px;
+
+    @include respond(mobile-md) {
+      font-size: 24px;
+    }
+
+    &.underlined::before {
+      top: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__photo-grid {
+    margin-top: 85px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 15vw);
+    gap: 5px;
+
+    @include respond(laptop-md) {
+      grid-template-rows: auto;
+    }
+  }
+
+  &__photo {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__item {
+    margin: 0;
+    @include respond(laptop) {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__item--1 {
+    grid-column: 1;
+    grid-row: 1;
+    @include respond(laptop) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    @include respond(mobile) {
+      grid-column: span 4;
+      grid-row: span 4;
+    }
+  }
+
+  &__item--2 {
+    grid-column: 2;
+    grid-row: 1;
+    @include respond(laptop) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    @include respond(mobile) {
+      grid-column: span 4;
+      grid-row: span 4;
+    }
+  }
+
+  &__item--3 {
+    grid-column: 3;
+    grid-row: 1;
+    @include respond(laptop) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    @include respond(mobile) {
+      grid-column: span 4;
+      grid-row: span 4;
+    }
+  }
+
+  &__item--4 {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+    @include respond(laptop) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    @include respond(mobile) {
+      grid-column: span 4;
+      grid-row: span 4;
+    }
+  }
+
+  &__item--5 {
+    grid-column: 1;
+    grid-row: 2;
+    @include respond(laptop) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    @include respond(mobile) {
+      grid-column: span 4;
+      grid-row: span 4;
+    }
+  }
+
+  &__item--6 {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    @include respond(laptop) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    @include respond(mobile) {
+      grid-column: span 4;
+      grid-row: span 4;
+    }
+  }
+}

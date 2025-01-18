@@ -1,0 +1,117 @@
+@use "../abstract/mixins" as *;
+
+.header {
+  position: relative;
+  background-image: url("./assets/img/desktop-header-bg.jpg");
+  background-size: cover;
+  background-position: center;
+
+  height: 800px;
+  max-width: 1920px;
+  margin: 0 auto;
+
+  @include respond(mobile) {
+    background-image: url("./assets/img/mobile-header-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: 640px;
+  }
+
+  &__menu-toggle {
+    position: absolute;
+    top: 20px;
+    right: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 6px;
+    width: 36px;
+    background: none;
+    border: none;
+
+    @include respond(mobile) {
+      right: 3px;
+    }
+    &-line {
+      height: 3px;
+      background-color: black;
+      @include respond(mobile) {
+        right: 20px;
+      }
+      &:nth-child(even) {
+        width: 100%;
+      }
+      &:nth-child(odd) {
+        width: 83.3%;
+      }
+    }
+  }
+
+  &__socials {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    translate: -108px -60%;
+    transform: rotate(-90deg);
+
+    @include respond(desktop) {
+      display: none;
+    }
+
+    &__title {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    &__vertical-divider {
+      display: inline;
+      width: 70px;
+      height: 2px;
+      background-color: black;
+    }
+  }
+
+  &__main-section {
+    max-width: 532px;
+    padding-top: 209px;
+
+    & h2 {
+      position: relative;
+      z-index: 1;
+      padding-left: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    & h3 {
+      margin-top: 9px;
+      font-size: 48px;
+      font-weight: bold;
+      line-height: 60px;
+
+      @include respond(mobile-md) {
+        font-size: 26px;
+        line-height: 40px;
+      }
+    }
+
+    @include respond(mobile-md) {
+      max-width: 300px;
+    }
+  }
+
+  &__link-block {
+    margin-top: 39px;
+    display: flex;
+    align-items: center;
+    gap: 41px;
+    font-size: 14px;
+    font-weight: bold;
+
+    @include respond(mobile-md) {
+      margin-top: 34px;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@use "../abstract/mixins" as *;
+
+.skills {
+  padding-top: 192px;
+
+  & .wrapper {
+    @include respond(mobile-md) {
+      padding-left: 0;
+    }
+  }
+  @include respond(mobile-md) {
+    padding-top: 80px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+
+    &.bg-circle::before {
+      left: 25%;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    text-align: center;
+    margin-top: 6px;
+    position: relative;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 60px;
+
+    @include respond(mobile-md) {
+      font-size: 24px;
+      line-height: 31px;
+      margin-top: 31px;
+    }
+
+    &.underlined::before {
+      top: 140%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__grid {
+    margin-top: 85px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 13px;
+
+    @include respond(mobile-md) {
+      margin-top: 43px;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    }
+  }
+
+  &__item {
+    border: solid 1px black;
+    padding: 25px 30px;
+
+    &__title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    &__description {
+      margin-top: 15px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+
+  &__progress-grid {
+    margin-top: 120px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px 45px;
+  }
+
+  &__progress-item {
+    width: 350px;
+
+    @include respond(desktop-lg) {
+      width: 300px;
+    }
+  }
+  &__progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__progress-title {
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    padding-left: 14px;
+  }
+
+  &__progress-percent {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__progress-line {
+    background-color: #e8e4de;
+    border-radius: 4px;
+    width: 100%;
+    height: 14px;
+    position: relative;
+    margin-top: 27px;
+
+    &__fill {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background-color: #ffa501;
+      border-radius: inherit;
+    }
+  }
+}

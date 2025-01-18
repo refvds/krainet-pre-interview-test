@@ -1,0 +1,157 @@
+@use "../abstract/mixins" as *;
+
+.contacts {
+  margin-top: 120px;
+  margin-bottom: 92px;
+
+  &__content {
+    flex: 1;
+  }
+
+  &__photo {
+    display: block;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include respond(desktop-xs) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 70px;
+
+    @include respond(desktop-md) {
+      gap: 20px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    font-size: 36px;
+    margin-top: 10px;
+    font-weight: bold;
+    position: relative;
+
+    @include respond(laptop) {
+      font-size: 24px;
+      margin-top: 33px;
+    }
+
+    &.underlined::before {
+      @include respond(laptop) {
+        top: 44px;
+      }
+    }
+  }
+
+  &__mini-text {
+    display: block;
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: bold;
+
+    @include respond(laptop) {
+      margin-top: 40px;
+    }
+  }
+
+  &__socials {
+    margin-top: 20px;
+    display: flex;
+    gap: 25px;
+  }
+
+  &__link-img {
+    width: 25px;
+  }
+
+  &__form {
+    margin-top: 30px;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      @include respond(laptop) {
+        flex-direction: column;
+      }
+    }
+    &__input-block {
+      position: relative;
+
+      &--message {
+        @include respond(laptop) {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__input {
+      display: inline-block;
+      padding: 5px;
+      width: 100%;
+      height: 100%;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      &--textarea {
+        height: 190px;
+        width: 100%;
+        height: 190px;
+        border: none;
+        resize: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &-block--text,
+      &-block--email {
+        width: 100%;
+        @include respond(laptop) {
+          width: auto;
+        }
+      }
+    }
+
+    &__submit-btn {
+      margin-top: 28px;
+      display: block;
+
+      @include respond(laptop) {
+        display: inline-flex;
+        margin: 0 auto;
+        margin-top: 20px;
+      }
+    }
+
+    &__error {
+      display: inline-block;
+      position: absolute;
+      top: -80%;
+      left: 0;
+      font-size: 10px;
+      font-weight: 500;
+      color: red;
+    }
+
+    &__input-block--message .contacts__form__error {
+      top: -15%;
+    }
+  }
+}
